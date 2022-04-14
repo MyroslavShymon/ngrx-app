@@ -1,8 +1,8 @@
 <button (click)="increase()" class="fz-60 m-20 p-50">+1</button>
-<button (click)="clear()" [disabled]="cannotDecrease" class="fz-60 m-20 p-50">=1</button>
-<button (click)="decrease()" [disabled]="cannotDecrease" class="fz-60 m-20 p-50">-1</button>
+<button (click)="clear()" [disabled]="cannotDecrease$ | async" class="fz-60 m-20 p-50">=1</button>
+<button (click)="decrease()" [disabled]="cannotDecrease$ | async" class="fz-60 m-20 p-50">-1</button>
 
-<p class="fz-60">Лічильник = {{counter}}</p>
-<p *ngIf="updatedAt" class="fz-60">
-  Обновлювалось: {{updatedAt | date:"HH:mm:ss dd/MM/yyyy"}}
+<p class="fz-60">Лічильник = {{count$ | async}}</p>
+<p *ngIf="updatedAt$ | async" class="fz-60">
+  Обновлювалось: {{updatedAt$ | async | date:"HH:mm:ss dd/MM/yyyy"}}
 </p>
